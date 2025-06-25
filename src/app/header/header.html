@@ -1,0 +1,42 @@
+<header>
+    <div class="container-fluid">
+        <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+            aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-lg-flex" id="navbarMain">
+            <a class="navbar-brand col-lg-3 me-0" href="#">STUDIO MAX</a>
+            <ul class="navbar-nav col-lg-6 justify-content-lg-center flex-lg-row gap-3">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Портфолио</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                        aria-expanded="false">Услуги</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" (click)="advRoll ($event)">Рекламный ролик</a></li>
+                        <li><a class="dropdown-item" (click)="imgRoll ($event)">Имиждовый ролик</a></li>
+                        <li><a class="dropdown-item" (click)="presRoll($event)">Презентационный фильм</a></li>
+                        <li><a class="dropdown-item" (click)="g3DRoll ($event)">3D графика и анимация</a></li>
+                        <li><a class="dropdown-item" (click)="infgRoll($event)">Инфографика</a></li>
+                        <li><a class="dropdown-item" (click)="cinRoll ($event)">Эффекты в кино</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Контакты</a>
+                </li>
+            </ul>
+            <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+                <ul class="text-center align-content-between text-decoration-none p-0 m-0 list-unstyled">
+                    <li><a class="text-decoration-none" href="tel:+79277254665">+7(927)725-46-65</a><br></li>
+                    <li><a class="text-decoration-none" href="mailto:mail@studio-max.ru">mail&#64;studio-max.ru</a><br></li>
+                    
+                    <li class="d-flex justify-content-end flex-row gap-3">
+                        <a class="d-block" href="https://wa.me/+79277254665"><i class="bi bi-whatsapp"></i></a>
+                        <a class="d-block" href="https://t.me/+79277254665"><i class="bi bi-telegram"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
