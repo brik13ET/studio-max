@@ -2,13 +2,15 @@
     <div class="container-fluid">
         <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
             aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon">
+                <i class="bi bi-list"></i>
+            </span>
         </button>
         <div class="collapse navbar-collapse d-lg-flex" id="navbarMain">
-            <a class="navbar-brand col-lg-3 me-0" href="#">STUDIO MAX</a>
+            <a class="navbar-brand col-lg-3 me-0" >STUDIO MAX</a>
             <ul class="navbar-nav col-lg-6 justify-content-lg-center flex-lg-row gap-3">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Портфолио</a>
+                    <a class="nav-link" href="#" (click)="scrollPortfolio()">Портфолио</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
@@ -23,7 +25,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Контакты</a>
+                    <a class="nav-link" aria-current="page" href="#" (click)="scrollContact()">Контакты</a>
                 </li>
             </ul>
             <div class="d-lg-flex col-lg-3 justify-content-lg-end">
@@ -32,8 +34,8 @@
                     <li><a class="text-decoration-none" href="mailto:mail@studio-max.ru">mail&#64;studio-max.ru</a><br></li>
                     
                     <li class="d-flex justify-content-end flex-row gap-3">
-                        <a class="d-block" href="https://wa.me/+79277254665"><i class="bi bi-whatsapp"></i></a>
-                        <a class="d-block" href="https://t.me/+79277254665"><i class="bi bi-telegram"></i></a>
+                        <a class="d-block" href="https://wa.me/+79277254665"><i class="fs-4 bi bi-whatsapp"></i></a>
+                        <a class="d-block" href="https://t.me/+79277254665"><i class="fs-4 bi bi-telegram"></i></a>
                     </li>
                 </ul>
             </div>

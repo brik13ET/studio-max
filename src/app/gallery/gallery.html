@@ -1,12 +1,17 @@
-<div class="container">
-    <div class="d-flex justify-content-around flex-row">
-        <video [src]="this.videos[0]"></video>
-        <video [src]="this.videos[1]"></video>
-        <video [src]="this.videos[2]"></video>
-    </div>
-    <div class="d-flex justify-content-around flex-row">
-        <video [src]="this.videos[3]"></video>
-        <video [src]="this.videos[4]"></video>
-        <video [src]="this.videos[5]"></video>
-    </div>
+<div class="d-flex justify-content-around gap-3 flex-row flex-wrap z-0">
+    @for (item of this.videos; track $index) {
+        <div (mouseover)="playvideo($index)"
+             (mouseout)="stopvideo($index)"
+             (mouseout)="stopvideo($index)"
+             (click)="unmute($index)"
+             class="overlay-container col-md-3 col-5">
+            <p class="overlay">
+                {{ item.description }}
+            </p>
+            <video class="z-n1"
+                [volume]="0"
+                [src]="item.video" >
+            </video>
+        </div>
+    }    
 </div>

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
+import { VideoType } from '../enums/video-type';
+import { Section } from '../enums/section';
 
 @Component({
   selector: 'app-header',
@@ -7,16 +9,38 @@ import { Component } from '@angular/core';
   styleUrl: './header.css'
 })
 export class Header {
+  
+  rollCallback = output<VideoType>();
+  scrollOut = output<Section>();
+  
+  scrollContact() {
+    this.scrollOut.emit(Section.Contacts);
+  }
+  scrollPortfolio() {
+    this.scrollOut.emit(Section.Portfolio);
+  }
 
-  public advRoll(ev: MouseEvent) { }
+  public advRoll  (ev: MouseEvent) {
+    this.rollCallback.emit(VideoType.Adv);
+  }
   
-  public imgRoll(ev: MouseEvent) { }
+  public imgRoll  (ev: MouseEvent) {
+    this.rollCallback.emit(VideoType.Img);
+  }
   
-  public presRoll(ev: MouseEvent) { }
+  public presRoll (ev: MouseEvent) {
+    this.rollCallback.emit(VideoType.Pres);
+  }
   
-  public g3DRoll(ev: MouseEvent) { }
+  public g3DRoll  (ev: MouseEvent) {
+    this.rollCallback.emit(VideoType.G3D);
+  }
   
-  public infgRoll(ev: MouseEvent) { }
+  public infgRoll (ev: MouseEvent) {
+    this.rollCallback.emit(VideoType.Infg);
+  }
   
-  public cinRoll(ev: MouseEvent) { }
+  public cinRoll  (ev: MouseEvent) {
+    this.rollCallback.emit(VideoType.Cin);
+  }
 }

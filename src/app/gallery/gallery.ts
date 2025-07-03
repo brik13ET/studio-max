@@ -1,6 +1,7 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
-import { Video } from '../video';
-import { InfoFile } from '../info-file';
+import { Component, Input } from '@angular/core';
+import { VideoType } from '../enums/video-type';
+import { InfoFile, InfoFileEntry } from '../types/info-file';
+import { VideoService } from '../types/video';
 
 @Component({
   selector: 'app-gallery',
@@ -8,31 +9,59 @@ import { InfoFile } from '../info-file';
   templateUrl: './gallery.html',
   styleUrl: './gallery.css'
 })
-export class Gallery implements OnInit{
-  
-  videos: string[];
-  @ViewChildren('video')
-  videoDivs!: QueryList<HTMLVideoElement>
+export class Gallery {
 
-  constructor(private videoService: Video) { 
-    this.videos = [];
+  private _currentVideoType!: VideoType;
+
+  @Input()
+  set currentVideoType(value: VideoType) {
+    this._currentVideoType = value;
+    if (!this.data) return
+    this.videos = this.data?.videos.filter(ent => ent.type == this.currentVideoType, this).slice(0, 6);
   }
 
-  ngOnInit(): void {
+  get currentVideoType() {
+    return this._currentVideoType;
+  }
+
+  data!: InfoFile;
+
+  videos: InfoFileEntry[] = [];
+
+  private get videoDivs()
+  {
+    return [...document.getElementsByTagName('video')];
+  }
+  
+  public  constructor(private videoService: VideoService) {
+
     this.videoService.getInfo().subscribe(
       (value: InfoFile) => {
-        const vids = value.videos;
-        for (let i = 0; i < vids.length; i++) {
-          this.loadVideo(i, vids[i].video);
-        }
+        this.data = value;
+        this.currentVideoType = this._currentVideoType;
       }
-    )
+    );
   }
-
-  public loadVideo(index: number, data: string) {
-    var videosArr = this.videos;
-    if (videosArr.length < index)
-      throw new Error(`No video element with index ${index}`);
-    videosArr[index] = data;
+  
+  public  stopvideo(index: number) {
+    const vid = this.videoDivs[index];
+    if (!vid)
+      return
+    vid.pause();
+    vid.currentTime = 0;
+    vid.volume = 0;
+  }
+  public  playvideo(index: number) {
+    const vid = this.videoDivs[index];
+    if (!vid)
+      return;
+    vid.play();
+    vid.loop = true;
+  }
+  public unmute(index: number) {
+    const vid = this.videoDivs[index];
+    if (!vid)
+      return;
+    vid.volume = 1;
   }
 }
