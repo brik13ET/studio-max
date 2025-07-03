@@ -14,7 +14,6 @@ video {
     /* Black see-through */
     color: #f1f1f1;
     width: 100%;
-    transition: .5s ease;
     opacity: 0;
     color: white;
     font-size: 20px;
@@ -27,5 +26,14 @@ video {
 }
 
 .overlay-container:hover .overlay {
-    opacity: 1;
+    animation-name: container_hover_overlay;
+    animation-duration: 4s;
+}
+
+@keyframes container_hover_overlay {
+  0%   {opacity: 0;}
+  25%  {opacity: 1;}
+  50%  {opacity: 1;}
+  75%  {opacity: 1;}
+  100% {opacity: 0;}
 }
