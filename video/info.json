@@ -1,0 +1,34 @@
+{
+    "videos": [
+        {
+            "video": "/video/SampleVideo_1280x720_1mb.mp4",
+            "description": "SampleVideo_1280x720_1mb mp4 video0",
+            "type": 0
+        },
+        {
+            "video": "/video/SampleVideo_1280x720_1mb.mp4",
+            "description": "SampleVideo_1280x720_1mb mp4 video1",
+            "type": 0
+        },
+        {
+            "video": "/video/SampleVideo_1280x720_1mb.mp4",
+            "description": "SampleVideo_1280x720_1mb mp4 video2",
+            "type": 0
+        },
+        {
+            "video": "/video/SampleVideo_1280x720_1mb.mp4",
+            "description": "SampleVideo_1280x720_1mb mp4 video3",
+            "type": 0
+        },
+        {
+            "video": "/video/SampleVideo_1280x720_1mb.mp4",
+            "description": "SampleVideo_1280x720_1mb mp4 video4",
+            "type": 0
+        },
+        {
+            "video": "/video/SampleVideo_1280x720_1mb.mp4",
+            "description": "SampleVideo_1280x720_1mb mp4 video5",
+            "type": 0
+        }
+    ]
+}

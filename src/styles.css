@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+footer, header, main  {
+    background: #000000;
+    border-bottom: orange ;
+    border-width: 2px;
+    color: gainsboro;
+    margin-right: 0;
+}
+
+.dropdown-menu {
+    --bs-dropdown-background: #000000;
+    --bs-dropdown-border-color: orange;
+    --bs-dropdown-border-width: 2px;
+    --bs-dropdown-color: gainsboro;
+}
+
+/* :root {
+    overflow-x: hidden;
+} */

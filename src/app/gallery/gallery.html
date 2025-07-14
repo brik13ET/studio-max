@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-around gap-3 flex-row flex-wrap z-0">
+    @for (item of this.videos; track $index) {
+        <div (mouseover)="playvideo($index)"
+             (mouseout)="stopvideo($index)"
+             (mouseout)="stopvideo($index)"
+             (click)="unmute($index)"
+             class="overlay-container col-md-3 col-5">
+             <video
+             class="z-0"
+             [volume]="0"
+             [src]="item.video" >
+            </video>
+            <p class="overlay">
+                {{ item.description }}
+            </p>
+        </div>
+    }    
+</div>
