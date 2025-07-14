@@ -5,14 +5,13 @@
              (mouseout)="stopvideo($index)"
              (click)="unmute($index)"
              class="overlay-container col-md-3 col-5">
-             <video
-             class="z-0"
-             [volume]="0"
-             [src]="item.video" >
-            </video>
             <p class="overlay">
                 {{ item.description }}
             </p>
+            <video class="z-n1"
+                [volume]="0"
+                [src]="item.video" >
+            </video>
         </div>
     }    
 </div>
