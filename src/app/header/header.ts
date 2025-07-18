@@ -24,9 +24,9 @@ export class Header {
   }
 
   constructor(service: VideoService) {
-    service.getInfo().subscribe(val => {
-      this.VideoTypes = val.types;
-    });
+    service.getInfo().subscribe(rxd => 
+      this.VideoTypes = rxd.types
+    );
   }
 
   public setRoll  (index: number) {

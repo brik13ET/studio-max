@@ -1,15 +1,15 @@
-<div class="d-flex justify-content-around gap-3 flex-row flex-wrap">
+<div class="d-flex justify-content-around gap-3 flex-row flex-wrap mw-100 position-relative">
     @for (item of this.videos; track $index) {
         <div (mouseover)="playvideo($index)"
              (mouseout)="stopvideo($index)"
              (mouseout)="stopvideo($index)"
              (click)="unmute($index)"
-             class="overlay-container col-md-3 col-5">
+             class="overlay-container col-md-3 col-6">
             <video 
              [volume]="0"
              [src]="item.video" >
             </video>
-            <p class="overlay">
+            <p class="overlay overflow-hidden">
                 {{ item.description }}
             </p>
         </div>

@@ -1,10 +1,9 @@
-<div class="container row" id="videoRoot" style="background-color: rgb(207, 232, 116);" (click)="bubble($event)">
+<div class="container row mx-0 rounded-3 shadow bg-light-subtle" id="videoRoot" (click)="bubble($event)">
     <div class="col-4">
         <video
             src="{{info.video}}"
             autoplay="false"
             muted="true"
-            controls="none"
             
         >
         </video>
@@ -15,7 +14,7 @@
         </div><div class="row">
             <ul style="list-style-type: none;">
                 @for (type of info.type; track $index) {
-                    <li>{{type}}</li>
+                    <li>{{types[type]}}</li>
                 }
             </ul>
         </div>

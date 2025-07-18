@@ -34,12 +34,10 @@ export class Gallery {
   
   public  constructor(private videoService: VideoService) {
 
-    this.videoService.getInfo().subscribe(
-      (value: InfoFile) => {
-        this.data = value;
-        this.currentVideoType = this._currentVideoType;
-      }
-    );
+    this.videoService.getInfo().subscribe(rxd => {
+      this.data = rxd;
+      this.currentVideoType = this._currentVideoType;
+    });
   }
   
   public  stopvideo(index: number) {

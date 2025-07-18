@@ -4,7 +4,6 @@ import { Gallery } from '../gallery/gallery';
 import { Header } from "../header/header";
 import { Footer } from "../footer/footer";
 import { VideoService } from '../types/video';
-import { InfoFile } from '../types/info-file';
 import { Router } from '@angular/router';
 
 @Component({
@@ -25,9 +24,9 @@ export class Front {
     videoService: VideoService,
     private router: Router
   ) {
-    videoService.getInfo().subscribe((value: InfoFile) => {
-      this.currentVideoType = value.defaultTypeIndex;
-    });
+     videoService.getInfo().subscribe( rxd =>
+      this.currentVideoType = rxd.defaultTypeIndex
+    );
   }
   
   ngOnInit(): void {

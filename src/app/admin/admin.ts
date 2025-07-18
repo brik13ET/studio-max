@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { VideoService } from '../types/video';
 import { InfoFile, InfoFileEntry } from '../types/info-file';
 import { VideoList } from '../video-list/video-list';
+import { AddVideo } from '../add-video/add-video';
 
 @Component({
   selector: 'app-admin',
-  imports: [VideoList],
+  imports: [VideoList, AddVideo],
   templateUrl: './admin.html',
   styleUrl: './admin.css'
 })
@@ -20,12 +21,9 @@ export class Admin {
   selected!: InfoFileEntry;
 
   constructor(
-    private videoService: VideoService
+    private videoService: VideoService,
   ) {
-    this.videoService.getInfo().subscribe(
-      (value: InfoFile) => {
-        this.data = value;
-      }
-    );
+    
+    this.videoService.getInfo().subscribe(rxd => this.data = rxd);
   }
 }

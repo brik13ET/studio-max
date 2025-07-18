@@ -1,5 +1,5 @@
 <app-header (rollCallback)="currentRol($event)" class="position-sticky top-0 m-0 z-1"></app-header>
-<main style="min-height: 90vh; max-width: 100%;">
+<main style="min-height: 90vh; max-width: calc(100vw-1rem);">
     @if(currentVideoType != null) {
         <app-gallery
             id="Portfolio"
@@ -15,13 +15,13 @@
         <br>
         С УВАЖЕНИЕМ ДИРЕКТОР ООО &laquo;СТУДИЯ МАКС&raquo;
     </p>
-    <div class="container row-cols-auto d-flex justify-content-around" id="Contacts">
-        <div class="col ">
+    <div class="row row-cols-2 d-flex justify-content-around" id="Contacts">
+        <div class="col-md-6 col-12">
             <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A2d0d06a1e2d12ca6b1685889f399465bdb70a1534d371a323549e24208bf9ed0&amp;source=constructor" width="100%" height="385" frameborder="0"></iframe>
         </div>
-        <div  class="col py-md-3 px-3">
+        <div  class="col-md-6 col-12 py-md-3 px-md-3 px-0">
             
-                <ul class="fs-3 lh-lg">
+                <ul class="fs-3 lh-lg pl-2">
                     <li><a class="text-decoration-none" href="https://yandex.ru/maps/51/samara/?from=mapframe&ll=50.159258%2C53.216889&mode=usermaps&source=mapframe&um=constructor%3A2d0d06a1e2d12ca6b1685889f399465bdb70a1534d371a323549e24208bf9ed0&utm_source=mapframe&z=18">Самара, Ерошевского&nbsp;3,Офис&nbsp;316</a></li>
                     <li><a class="text-decoration-none" href="tel:+79277254665">+7(927)725-46-65</a></li>
                     <li><a class="text-decoration-none" href="mailto:mail@studio-max.ru">mail&#64;studio-max.ru</a></li>
