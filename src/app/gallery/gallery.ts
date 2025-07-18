@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { VideoType } from '../enums/video-type';
 import { InfoFile, InfoFileEntry } from '../types/info-file';
 import { VideoService } from '../types/video';
 
@@ -11,13 +10,13 @@ import { VideoService } from '../types/video';
 })
 export class Gallery {
 
-  private _currentVideoType!: VideoType;
+  private _currentVideoType!: number;
 
   @Input()
-  set currentVideoType(value: VideoType) {
+  set currentVideoType(value: number) {
     this._currentVideoType = value;
     if (!this.data) return
-    this.videos = this.data?.videos.filter(ent => ent.type == this.currentVideoType, this).slice(0, 6);
+    this.videos = this.data?.videos.filter(ent => ent.type.includes(this.currentVideoType), this).slice(0, 8);
   }
 
   get currentVideoType() {

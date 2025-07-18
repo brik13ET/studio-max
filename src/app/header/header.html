@@ -7,25 +7,27 @@
             </span>
         </button>
         <div class="collapse navbar-collapse d-lg-flex" id="navbarMain">
-            <a class="navbar-brand col-lg-3 me-0" >STUDIO MAX</a>
+            <a class="navbar-brand col-lg-3 me-0" >
+                <img src="Studio MAX.png" alt="" style="position: relative;width: 100%; height: 3rem; object-fit: scale-down;">
+            </a>
             <ul class="navbar-nav col-lg-6 justify-content-lg-center flex-lg-row gap-3">
                 <li class="nav-item">
-                    <a class="nav-link" href="#" (click)="scrollPortfolio()">Портфолио</a>
+                    <a class="nav-link" routerLink="/" fragment="Portfolio">Портфолио</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
                         aria-expanded="false">Услуги</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" (click)="advRoll ($event)">Рекламный ролик</a></li>
-                        <li><a class="dropdown-item" (click)="imgRoll ($event)">Имиждовый ролик</a></li>
-                        <li><a class="dropdown-item" (click)="presRoll($event)">Презентационный фильм</a></li>
-                        <li><a class="dropdown-item" (click)="g3DRoll ($event)">3D графика и анимация</a></li>
-                        <li><a class="dropdown-item" (click)="infgRoll($event)">Инфографика</a></li>
-                        <li><a class="dropdown-item" (click)="cinRoll ($event)">Эффекты в кино</a></li>
+                        @if (VideoTypes != null) {
+                            @for (item of iterateTypes(); track $index) {
+
+                                <li><a class="dropdown-item" (click)="setRoll (item.id)">{{item.name}}</a></li>
+                            }
+                        }
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#" (click)="scrollContact()">Контакты</a>
+                    <a class="nav-link" aria-current="page" routerLink="/" fragment="Contacts">Контакты</a>
                 </li>
             </ul>
             <div class="d-lg-flex col-lg-3 justify-content-lg-end">

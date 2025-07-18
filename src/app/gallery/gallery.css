@@ -3,6 +3,7 @@ video {
     object-fit: contain;
     height: auto;
     width: 100%;
+    aspect-ratio: 16/9;
     position: relative;
 }
 
@@ -22,7 +23,16 @@ video {
 }
 
 .overlay-container {
-    position: relative;
+        position: relative;
+        width: calc(95vw/2);
+    }
+
+@media screen and (width >= 900px) {
+    
+    .overlay-container {
+        position: relative;
+        width: calc(95vw/4);
+    }
 }
 
 .overlay-container:hover .overlay {

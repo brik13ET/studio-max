@@ -1,46 +1,35 @@
 import { Component, output } from '@angular/core';
-import { VideoType } from '../enums/video-type';
-import { Section } from '../enums/section';
+import { VideoType } from '../types/info-file';
+import { VideoService } from '../types/video';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
 export class Header {
   
-  rollCallback = output<VideoType>();
-  scrollOut = output<Section>();
+  rollCallback = output<number>();
   
-  scrollContact() {
-    this.scrollOut.emit(Section.Contacts);
-  }
-  scrollPortfolio() {
-    this.scrollOut.emit(Section.Portfolio);
+  VideoTypes!: VideoType;
+
+  public iterateTypes(): {id: number, name: string}[] {
+    let ret: {id: number, name: string}[] = [];
+    for ( const e in this.VideoTypes) {
+      ret.push({id: parseInt(e), name: this.VideoTypes[e]});
+    }
+    return ret;
   }
 
-  public advRoll  (ev: MouseEvent) {
-    this.rollCallback.emit(VideoType.Adv);
+  constructor(service: VideoService) {
+    service.getInfo().subscribe(val => {
+      this.VideoTypes = val.types;
+    });
   }
-  
-  public imgRoll  (ev: MouseEvent) {
-    this.rollCallback.emit(VideoType.Img);
-  }
-  
-  public presRoll (ev: MouseEvent) {
-    this.rollCallback.emit(VideoType.Pres);
-  }
-  
-  public g3DRoll  (ev: MouseEvent) {
-    this.rollCallback.emit(VideoType.G3D);
-  }
-  
-  public infgRoll (ev: MouseEvent) {
-    this.rollCallback.emit(VideoType.Infg);
-  }
-  
-  public cinRoll  (ev: MouseEvent) {
-    this.rollCallback.emit(VideoType.Cin);
+
+  public setRoll  (index: number) {
+    this.rollCallback.emit(index);
   }
 }

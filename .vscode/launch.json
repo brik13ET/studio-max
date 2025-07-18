@@ -4,10 +4,11 @@
   "configurations": [
     {
       "name": "ng serve",
-      "type": "chrome",
+      "type": "firefox",
       "request": "launch",
       "preLaunchTask": "npm: start",
-      "url": "http://localhost:4200/"
+      "url": "http://localhost:4200/",
+      "firefoxExecutable": "D:/Firefox/firefox.exe"
     },
     {
       "name": "ng test",

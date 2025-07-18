@@ -1,0 +1,42 @@
+<div class="container-fluid row">
+    <div class="col-6" style="background-color: rgb(209, 209, 209);">
+        @if (selected) {
+        <div class="container sticky-top">
+            <video src="{{selected.video}}" style="background-color: aliceblue;">
+
+            </video>
+            <h3>
+                {{selected.description}}
+            </h3>
+            <ul style="list-style-type: none;">
+                @for (typen of selected.type; track $index) {
+                <li>
+                    {{typen}}
+                </li>
+                }
+            </ul>
+
+            <div class="container">
+                <form action="/upload" method="post">
+                    <input type="text" name="user" id="user">
+                    <input type="text" name="pass" id="pass">
+                    <input type="file" name="file" id="file">
+                    <input type="text" name="description" id="description">
+                    <fieldset>
+                        @for (e of [1,2,3,4,5,5,6]; track $index) {
+                        <input type="radio" name="type" id="video_type_{{e}}">
+                        }
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        }
+    </div>
+    <div class="col-6 d-flex flex-column justify-between gap-3" style="background-color: rgb(90, 140, 184);">
+        @if (data != null) {
+            @for (vid of data.videos; track $index) {
+             <app-video-list [info]="vid" (activated)="loadVideo($event)"></app-video-list>
+            }
+        }
+    </div>
+</div>

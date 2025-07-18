@@ -1,4 +1,9 @@
 import { Routes } from '@angular/router';
-import { Gallery } from './gallery/gallery';
+import { Admin } from './admin/admin';
+import { App } from './app';
+import { Front } from './front/front';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+    {path: 'admin', component: Admin},
+    {path: '',      component: Front},
+];

@@ -1,0 +1,7 @@
+video {
+    display: block;
+    object-fit: contain;
+    height: auto;
+    width: 100%;
+    position: relative;
+}

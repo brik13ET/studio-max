@@ -1,14 +1,17 @@
-import { VideoType } from "../enums/video-type"
-
 export type InfoFileEntry = {
     video: string,
     description: string,
-    type: VideoType
+    type: number[]
 }
+
+export type VideoType  = {
+    [id: number]: string
+};
+
 
 export type InfoFile = 
     {
-        videos: [
-            InfoFileEntry
-        ]
+        defaultTypeIndex: number,
+        videos: InfoFileEntry[],
+        types: VideoType
     }
